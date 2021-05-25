@@ -1,0 +1,11 @@
+class Solution(object):
+    def diagonalSum(self, mat):
+        sum=0
+        n=len(mat)
+        for i in range(n):
+            if i!=(n-i-1):
+                sum+=mat[i][n-i-1]
+                sum+=mat[i][i]
+            else:
+                sum+=mat[i][i]
+        return sum
