@@ -1,0 +1,9 @@
+WITH RECURSIVE cte(n) AS (
+    SELECT 2
+    UNION ALL
+    SELECT n+1 FROM cte WHERE n<1000
+)
+
+SELECT 2 FROM cte c1 WHERE NOT EXISTS(
+    SELECT 1 FROM cte c2 WHERE c1.n>c2.n AND c1.n%c2.n=0
+)
